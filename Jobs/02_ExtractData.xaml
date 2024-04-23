@@ -1,0 +1,185 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_02_ExtractData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1222,1595</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_02_ExtractData_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_02_ExtractData" sap:VirtualizedContainerService.HintSize="512,1530" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="in_dicConfig(&quot;Mofa_URL&quot;).ToString" AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Chrome: 외교부 홈페이지에 오신것을 환영합니다." sap:VirtualizedContainerService.HintSize="450,1442" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f2187119-39c0-4b31-9f56-545606b40893" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,1171" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '외교부'" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f2187119-39c0-4b31-9f56-545606b40893" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.mofa.go.kr/www/index.do" CvTextArea="609, 645, 61, 25" CvTextArgument="9jmE" CvType="Text" DesignTimeRectangle="490, 620, 300, 75" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='active wow fadeInUp' aaname='외교부' check:innerText='외교부' /&gt;" Guid="e4350757-9b5b-419b-a2f5-fdd867f5f8d3" InformativeScreenshot="68a7fdc25797d7a6c6277cba31f8b0aa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='외교부 홈페이지에 오신것을 환영합니다.' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="609, 645, 61, 25" CvTextArgument="9jmE" CvType="Text" DesignTimeRectangle="609, 645, 62, 25" ElementType="Text" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '정보공개'" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f2187119-39c0-4b31-9f56-545606b40893" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.mofa.go.kr/www/wpge/m_20526/contents.do" CvTextArea="1193, 187, 65, 19" CvTextArgument="dLg7H" CvType="Text" DesignTimeRectangle="1166, 155, 119, 85" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='정보공개' parentid='gnb' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='정보공개' parentid='gnb' tag='A' type='' class='' check:innerText='정보공개' /&gt;" Guid="4239f5c5-6b00-46a9-884a-7915f7513194" InformativeScreenshot="2a8db7afd45370af46408d44a3bfa1fb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='제도소개 | 외교부' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="1193, 187, 65, 19" CvTextArgument="dLg7H" CvType="Text" DesignTimeRectangle="1193, 187, 65, 19" ElementType="Text" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="세입세출예산운용상황&#xD;&#xA;/html/body/div/div[2]/div[2]/div[2]/ul/li[6]/div/ul/li[4]/ol/li[3]/a/text()" ClickType="Single" DisplayName="Click '사전정보공표'" sap:VirtualizedContainerService.HintSize="354,254" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f2187119-39c0-4b31-9f56-545606b40893" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.mofa.go.kr/www/wpge/m_20526/contents.do" CvElementArea="483, 623, 29, 25" CvTextArea="273, 625, 104, 18" CvTextArgument="- AFOLO£" CvType="ArrowButton" DesignTimeRectangle="250, 606, 280, 58" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*사전정보공표*' class='menu_btn' parentid='wrapper' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;사전정보공표 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' class='menu_btn' parentid='wrapper' tag='A' type='' check:innerText='사전정보공표' /&gt;" Guid="e482bdbe-21a4-49d1-884c-730d057e667c" InformativeScreenshot="864ff2020b6e4a33815003724768018d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='제도소개 | 외교부' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="273, 625, 104, 18" CvTextArgument="- AFOLO£" CvType="Text" DesignTimeRectangle="273, 625, 105, 18" ElementType="Text" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '세입세출예산운용상황'" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f2187119-39c0-4b31-9f56-545606b40893" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.mofa.go.kr/www/wpge/m_20526/contents.do" CvTextArea="76, 674, 142, 17" CvTextArgument="MAI¥0POUg" CvType="Text" DesignTimeRectangle="77, 672, 139, 22" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;html app='chrome.exe' title='공공데이터개방 | 외교부' /&gt;&lt;webctrl aaname='*사전정보공표목록*' parentid='wrapper' tag='A' innertext='*사전정보공표목록*' parentclass='active' visibleinnertext='사전정보공표목록' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;세입세출예산운용상황 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentid='wrapper' tag='A' type='' class='' check:innerText='세입세출예산운용상황' /&gt;" Guid="0c90f4f0-8a10-4235-8a82-d9cccbf73bf7" InformativeScreenshot="6848c40c5985436f9b4e60079ee1ba27.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='제도소개 | 외교부' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvElementArea="271, 523, 29, 25" CvTextArea="61, 525, 105, 17" CvTextArgument="- AKUL3" CvType="ArrowButton" DesignTimeRectangle="38, 506, 280, 58" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;사전정보공표 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' class='menu_btn' parentid='wrapper' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;사전정보공표 &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' class='menu_btn' parentid='wrapper' tag='A' type='' check:innerText='사전정보공표' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenShortcuts="0.2" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="354,239" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="SameAsCard" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="96b627fdbc14f9df222b770d2ee4c004.jpg" Selector="&lt;html app='chrome.exe' url='https://www.mofa.go.kr/www/index.do' /&gt;" Title="외교부 홈페이지에 오신것을 환영합니다." Url="https://www.mofa.go.kr/www/index.do" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
