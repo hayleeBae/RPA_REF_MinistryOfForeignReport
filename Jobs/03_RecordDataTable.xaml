@@ -1,12 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="_03_RecordDataTable" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ExtractDataTable" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TempDataTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_SendDataTable" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1219,818</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1219,917</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_03_RecordDataTable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,14 +110,18 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&quot;0&quot; 인것은 제외하고 엑셀에 기록&#xD;&#xA;전체 DT 합계의 총합 구해서 종합 시트에 기록" DisplayName="_03_RecordDataTable" sap:VirtualizedContainerService.HintSize="416,470" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&quot;0&quot; 인것은 제외하고 엑셀에 기록&#xA;전체 DT 합계의 총합 구해서 종합 시트에 기록" DisplayName="_03_RecordDataTable" sap:VirtualizedContainerService.HintSize="416,852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="TempDataTable" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:FilterDataTable DataTable="[in_ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,201" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_ExtractDataTable]" SelectColumnsMode="Remove">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,181" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;0 데이터 삭제 후 종합 시트 기록&quot;]" />
+    <ui:FilterDataTable DataTable="[in_TempDataTable]" DisplayName="0 데이터 삭제된 최종 DT | Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,201" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[TempDataTable]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -135,6 +140,25 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[in_ExtractDataTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="354,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Temp" WorkbookPath="[in_dicConfig(&quot;Path&quot;).ToString + &quot;외교부_결과파일_배혜빈.xlsx&quot;]" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[TempDataTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Temp" WorkbookPath="[in_dicConfig(&quot;Path&quot;).ToString + &quot;외교부_결과파일_배혜빈.xlsx&quot;]" />
+    <ui:FilterDataTable DataTable="[in_TempDataTable]" DisplayName="0 데이터만 남은 최종 DT | Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="354,184" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[out_SendDataTable]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[4]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["0"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
   </Sequence>
 </Activity>
